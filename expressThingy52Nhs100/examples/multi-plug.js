@@ -46,7 +46,7 @@ const monitorEvents = function monitorEvents(device) {
 };
 
 (async () => {
-  const device = await client.getDevice({ host: '10.0.1.136' });
+  const device = await client.getDevice({ host: '192.168.1.201' });
 
   console.log(device.alias);
 
@@ -61,7 +61,7 @@ const monitorEvents = function monitorEvents(device) {
 
   await Promise.all(
     Array.from(device.children.keys(), async (childId) => {
-      const childPlug = await client.getDevice({ host: '10.0.1.136', childId });
+      const childPlug = await client.getDevice({ host: '192.168.1.201', childId });
       monitorEvents(childPlug);
     })
   );
