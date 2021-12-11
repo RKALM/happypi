@@ -1,0 +1,33 @@
+sudo apt-get update
+sudo apt-get upgrade
+https://www.makersupplies.sg/blogs/tutorials/how-to-install-node-js-and-npm-on-the-raspberry-pi
+https://nodejs.org/download/release/v8.11.4/
+wget https://nodejs.org/download/release/v8.11.4/node-v8.11.4-linux-armv7l.tar.gz
+tar -xzf node-v8.11.4-linux-armv7l.tar.gz
+cd node-v8.11.4-linux-armv7l
+sudo cp -R * /usr/local/
+node -v
+//v8.11.4
+npm -v
+//5.6.0
+npm install thingy52 //throws warnings and errors
+sudo apt update
+sudo apt install code //didn't work. bad choice
+https://code.visualstudio.com/docs/?dv=linuxarmhf //downloading it manually. bad choice
+//moving code-stable-armhf-1637136751.tar.gz to home/pi (one folder up from downloads). bad choice
+tar -xzf code-stable-armhf-1637136751.tar.gz //bad choice
+cd VSCode-linux-armhf //bad choice
+sudo cp -R * /usr/local/ //didn't work. bad choice
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install code //didn't work. bad choice
+sudo apt install code -y //didn't work. bad choice
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install code -y //didn't work. bad choice
+https://pimylifeup.com/raspberry-pi-visual-studio-code/ //followed its instructions. It worked!
+//Ran /home/pi/node_modules/thingy52/examples/led.js it worked!
+//going for the hs100
+sudo git clone https://github.com/plasticrake/hs100-api.git //it is for the hs100. not needed.
+sudo git clone https://github.com/exarchias/happypi.git //cloning the code for the pi. delete it and reclone it for updates.
+sudo rm -r /home/pi/happypi //removing the old happypi
