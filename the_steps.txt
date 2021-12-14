@@ -31,3 +31,11 @@ https://pimylifeup.com/raspberry-pi-visual-studio-code/ //followed its instructi
 sudo git clone https://github.com/plasticrake/hs100-api.git //it is for the hs100. not needed.
 sudo git clone https://github.com/exarchias/happypi.git //cloning the code for the pi. delete it and reclone it for updates.
 sudo rm -r /home/pi/happypi //removing the old happypi
+
+
+The step 2 details for a hadshake
+=================================
+http://194.47.34.210:3000/onoff
+sudo node examples/ifttt_gas.js -e onoff -k LcQX9ZGb 
+//at the moment gives an error noble: unknow peripheral e00f05209a39 handle notify!
+//i will probably have to give the correct parameters for the example. it will not happen today.
