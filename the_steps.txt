@@ -39,3 +39,7 @@ http://194.47.34.210:3000/onoff
 sudo node examples/ifttt_gas.js -e onoff -k LcQX9ZGb 
 //at the moment gives an error noble: unknow peripheral e00f05209a39 handle notify!
 //it seems that error comes from a disconnection.
+The link for the ifttt request is
+https://maker.ifttt.com/trigger/onoff/with/key/j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
+the key is j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
+and I am way to clever to use pesky libraries
