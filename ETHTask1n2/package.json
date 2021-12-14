@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "request": "^2.88.2",
     "tplink-smarthome-api": "^3.3.0"
   }
 }
