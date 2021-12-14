@@ -38,4 +38,4 @@ The step 2 details for a hadshake
 http://194.47.34.210:3000/onoff
 sudo node examples/ifttt_gas.js -e onoff -k LcQX9ZGb 
 //at the moment gives an error noble: unknow peripheral e00f05209a39 handle notify!
-//i will probably have to give the correct parameters for the example. it will not happen today.
+//it seems that error comes from a disconnection.
