@@ -1,7 +1,11 @@
 const express = require('express')
 var Thingy = require('./index2');
+var request = require('request');
+var util = require('util');
 const app = express()
 const port = 3000
+var maker_key = 'j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L';
+var BASE_URL = 'https://maker.ifttt.com/trigger/%s/with/key/%s';
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -41,7 +45,8 @@ function onButtonChange(state) {
 
   if (state == 'Pressed')
   {
-      hs100OnOff();
+      hs100OnOff(); //it makes the HS100 to go on and off
+      boopTheIFTTT('onoff'); //it makes the Nettio plug 1 to go on and off
   }
 }
 
@@ -60,6 +65,35 @@ function onDiscover(thingy) {
       console.log('Button enabled! ' + error);
     });
   });
+}
+
+//task 2 code
+//this is used by the boopTheIFTTT method that boops the IFTTT link.
+function makeRequest (params, cb){
+  request(params, function (error, response, body) {
+    if (response) {
+        if (response.statusCode == 200) {
+          return cb('An amazing boop');
+        }
+        return cb(JSON.parse(body)['errors']);
+    }
+    else {
+        return cb('Failed');
+    }
+  });
+}
+
+//it makes a GET request, (a boop), to the given url
+function boopTheIFTTT(maker_evt)
+{
+    var requestParams = {
+      url: util.format(BASE_URL, maker_evt, maker_key),
+      method: 'GET'
+    };
+
+    makeRequest(requestParams, function (err) {
+        console.log('booping the ifttt: ' + err)
+    });
 }
 
 Thingy.discover(onDiscover);
