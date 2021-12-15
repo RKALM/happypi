@@ -1,0 +1,16 @@
+//proxy server (the port might be a suject of change)
+http://194.47.34.210:3000/onoff
+
+
+//The ips bellow were taken from the images, (AKA screenshots)
+//Nettio (from a remote location). The ip seems strange. the third octade should not be 1. is the university server? should it be 34?
+http://194.47.1.210/nettio.cgi?pass=hkr&output1=4
+http://194.47.1.210/nettio.cgi?pass=hkr&output2=4
+http://194.47.1.210/nettio.cgi?pass=hkr&output3=4
+http://194.47.1.210/nettio.cgi?pass=hkr&output4=4
+
+//Nettio (from the local network).
+http://192.168.1.210/nettio.cgi?pass=hkr&output1=4
+http://192.168.1.210/nettio.cgi?pass=hkr&output2=4
+http://192.168.1.210/nettio.cgi?pass=hkr&output3=4
+http://192.168.1.210/nettio.cgi?pass=hkr&output4=4
