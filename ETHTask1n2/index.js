@@ -45,8 +45,9 @@ function onButtonChange(state) {
 
   if (state == 'Pressed')
   {
-      hs100OnOff(); //it makes the HS100 to go on and off
+      hs100OnOff(); //it makes the HS100 to go on and off, through the module that is installed here. check the code here.
       boopTheIFTTT('onoff'); //it makes the Nettio plug 1 to go on and off
+      //OR the HS100 through a proxy server. depends on what URL I give on the IFTTT maker.
   }
 }
 
