@@ -8,7 +8,8 @@ var maker_key = 'j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L';
 var BASE_URL = 'https://maker.ifttt.com/trigger/%s/with/key/%s';
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  let msg = pageGenerator("index", req, res); //generates a page dynamically.
+  res.write(msg);
 })
 
 //Turning the HS100 on and off!
@@ -20,6 +21,31 @@ app.get('/hs100onoff', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+
+//Dynamic generation of a page
+//===================== Page Generation ================================
+function pageGenerator(pagename, req, res){
+  var title = "";
+  if(pagename == "index"){
+      title = "Bonline";
+  } else {
+      title = pagename;
+  }
+  msg1="";
+  msg1 = msg1 + "<head>";
+  msg1 = msg1 + "<title>Welcome to " + title + "</title>";
+  msg1 = msg1 + '<LINK href="style.css" rel="stylesheet" type="text/css">';
+  msg1 = msg1 + "</head><body>";
+  msg1 = msg1 + '<a href="/index.html"><img border="0" alt="Bonline Logo" src="logo.jpg" height="100"></a><br/>';
+  msg1 = msg1 + "<h1>Welcome to the " + title + "</h1>";
+  //I will utilize the commented code bellow to create a menu and a display. 
+  //It will be different that what was in bonline
+  //text1 = menuGenerator(pagename, req, res, pgloging, pgadmin, pgname);
+  //msg1 = msg1 + text1;
+  msg1 = msg1 + '</body></html>';
+  return msg1;
+}
 
 //Turning the HS100 on and off!
 function hs100OnOff(){
