@@ -15,7 +15,9 @@ app.get('/', (req, res) => {
 //Turning the HS100 on and off!
 app.get('/hs100onoff', (req, res) => {
   hs100OnOff();
-  res.send('Hello HS100!')
+  //res.send('Hello HS100!')
+  let msg = pageGenerator("index", req, res); //generates a page dynamically.
+  res.write(msg);
 })
 
 app.listen(port, () => {
@@ -38,12 +40,18 @@ function pageGenerator(pagename, req, res){
   msg1 = msg1 + '<LINK href="style.css" rel="stylesheet" type="text/css">';
   msg1 = msg1 + "</head><body>";
   msg1 = msg1 + "<h1>Welcome to the " + title + "</h1>";
-  //I will utilize the commented code bellow to create a menu and a display. 
-  //It will be different that what was in bonline
-  //text1 = menuGenerator(pagename, req, res, pgloging, pgadmin, pgname);
-  //msg1 = msg1 + text1;
+  text1 = menuGenerator(req, res);
+  msg1 = msg1 + text1;
   msg1 = msg1 + '</body></html>';
   return msg1;
+}
+
+//it generates the menu
+function menuGenerator(req, res){
+  msg2="";
+  msg2 = msg2 + 'Status:' + res + '</br>';
+  msg2 = msg2 + '<a href="/hs100onoff">1. Turn smart plug on/off</a></br>';
+  return msg2;
 }
 
 //Turning the HS100 on and off!
