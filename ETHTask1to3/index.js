@@ -28,7 +28,7 @@ app.listen(port, () => {
 function pageGenerator(pagename, req, res){
   var title = "";
   if(pagename == "index"){
-      title = "Bonline";
+      title = "IoT Lab";
   } else {
       title = pagename;
   }
@@ -37,7 +37,6 @@ function pageGenerator(pagename, req, res){
   msg1 = msg1 + "<title>Welcome to " + title + "</title>";
   msg1 = msg1 + '<LINK href="style.css" rel="stylesheet" type="text/css">';
   msg1 = msg1 + "</head><body>";
-  msg1 = msg1 + '<a href="/index.html"><img border="0" alt="Bonline Logo" src="logo.jpg" height="100"></a><br/>';
   msg1 = msg1 + "<h1>Welcome to the " + title + "</h1>";
   //I will utilize the commented code bellow to create a menu and a display. 
   //It will be different that what was in bonline
