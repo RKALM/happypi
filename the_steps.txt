@@ -111,3 +111,9 @@ For HS100 remote:
 http://194.47.34.210:3000/onoff //For HS100. I will have to create for Nettio
 
 
+ETHTask1to3, (task 3)
+=====================
+Task 3, (ETHTask1to3), is about creating a web server that utilizes both of the technologies, (thingy and hs100), to a web server. [Work in progress]
+
+
+

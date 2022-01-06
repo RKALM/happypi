@@ -6,6 +6,9 @@ const app = express()
 const port = 3000
 var maker_key = 'j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L';
 var BASE_URL = 'https://maker.ifttt.com/trigger/%s/with/key/%s';
+//HS100
+const { Client } = require('tplink-smarthome-api');
+const client = new Client();
 
 app.get('/', (req, res) => {
   let msg = pageGenerator("index", req, res); //generates a page dynamically.
@@ -56,8 +59,8 @@ function menuGenerator(req, res){
 
 //Turning the HS100 on and off!
 function hs100OnOff(){
-  const { Client } = require('tplink-smarthome-api');
-  const client = new Client();
+  //const { Client } = require('tplink-smarthome-api');
+  //const client = new Client();
 
 client.getDevice({ host: '192.168.1.201' }).then((device) => {
   console.log('Found device:', device.deviceType, device.alias);
