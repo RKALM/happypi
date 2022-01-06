@@ -58,12 +58,13 @@ webapp-nordic-thingy
 It tries to use react instance. Right click on ht eReact folder and select "visual studio code".
 1)sudo npm install //danger to froze the pi
 2)sudo npm start
+This instance serves as a proof that React can't work on the node.js version we are using.
 
 
 expressNhs100
 =============
 An express instance of the proxy server that turns on and off the smart plug HS100 through its ip (192.168.1.201) and it is accessed by get on "http://localhost:3000/onoff"
-Is made to work on Windows. To make it work on pi, the module "module_name_missing" is needed to installed explicitelly, but it seems to work with a simple inclusive install.
+Is made to work on Windows. To make it work on pi, the module 'tplink-smarthome-api' is needed to installed explicitelly, but it seems to work with a simple inclusive install.
 Important to run it with sudo:
 1)sudo npm install
 2)sudo npm start
