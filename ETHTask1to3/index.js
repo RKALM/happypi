@@ -1,5 +1,8 @@
 const express = require('express')
+//Thingy
 var Thingy = require('./index2');
+var led_color = 1;
+//Misc
 var request = require('request');
 var util = require('util');
 const app = express()
@@ -19,6 +22,13 @@ app.get('/', (req, res) => {
 app.get('/hs100onoff', (req, res) => {
   hs100OnOff();
   //res.send('Hello HS100!')
+  let msg = pageGenerator("index", req, res); //generates a page dynamically.
+  res.write(msg);
+})
+
+//Changing the color of the LED
+app.get('/toggleledcolor', (req, res) => {
+  toggleLedColor();
   let msg = pageGenerator("index", req, res); //generates a page dynamically.
   res.write(msg);
 })
@@ -54,6 +64,7 @@ function menuGenerator(req, res){
   msg2="";
   msg2 = msg2 + 'Status:' + res + '</br>';
   msg2 = msg2 + '<a href="/hs100onoff">1. Turn smart plug on/off</a></br>';
+  msg2 = msg2 + '<a href="/toggleledcolor">2. Toggle LED color</a></br>';
   return msg2;
 }
 
@@ -85,6 +96,20 @@ function onButtonChange(state) {
       boopTheIFTTT('onoff'); //it makes the Nettio plug 1 to go on and off
       //OR the HS100 through a proxy server. depends on what URL I give on the IFTTT maker.
   }
+}
+
+function toggleLedColor(){
+  led_color = (led_color + 1) % 8;
+        if (led_color == 0)
+        {
+            led_color = 1;
+        }
+
+        var led = {
+            color : led_color,
+            intensity : 20,
+            delay : 1000
+        };
 }
 
 //discovers the thingy
