@@ -68,7 +68,7 @@ By itself it does nothing. but the examples server to understand both technologi
 The hs100 ip is configured correctly: 192.168.1.201
 1)sudo npm install
 Maybe "sudo npm install tplink-smarthome-api" as well. 
-2)sudo npm start
+2)sudo npm examples/name_of_file.js
 
 
 expressNhs100
