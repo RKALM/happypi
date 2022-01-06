@@ -46,3 +46,16 @@ the key is j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
 a repository to try to clone, (a nodejs project that I wish to check if it works)
 =================================================================================
 sudo git clone https://github.com/NordicPlayground/webapp-nordic-thingy.git 
+
+
+
+==============
+EXPLAINATIONS
+=============
+
+
+expressNhs100
+=============
+An express instance of the proxy server that turns on and off the smart plug HS100 through its ip (192.168.1.201) and it is accessed by get on "http://localhost:3000/onoff"
+Is made to work on Windows. To make it work on pi, the module "module_name" is needed to installed explicitelly.
+
