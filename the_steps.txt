@@ -81,4 +81,16 @@ Maybe "sudo npm install tplink-smarthome-api" as well.
 2)sudo npm start
 
 
+ETHTask1, (the task 1)
+======================
+the final step, (step 4), on task 1 of the lab, asks for an instance that turns on/off the hs100 smartplug when the button from the NordigThingy52 is pressed, and that is exactly what ETHTask1 does. ETHTask1 uses both Thingy52 and HS100 technologies, and that means that both technolgoies need to be taken into consinderation.
+To make it work on pi, the module 'tplink-smarthome-api' is needed to installed explicitelly, (but it seems to work with a simple inclusive install).
+The hs100 ip is configured correctly: 192.168.1.201
+Important to run it with sudo:
+1)sudo npm install
+Maybe "sudo npm install tplink-smarthome-api" as well. 
+2)sudo npm start
+
+
+
 
