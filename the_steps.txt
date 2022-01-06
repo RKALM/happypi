@@ -61,12 +61,23 @@ It tries to use react instance. Right click on ht eReact folder and select "visu
 This instance serves as a proof that React can't work on the node.js version we are using.
 
 
+expressThingy52Nhs100
+=====================
+It serves as an example. it just includes both thingy52 and hs100 in the same express instance.
+By itself it does nothing. but the examples server to understand both technologies.
+The hs100 ip is configured correctly: 192.168.1.201
+1)sudo npm install
+Maybe "sudo npm install tplink-smarthome-api" as well. 
+2)sudo npm start
+
+
 expressNhs100
 =============
 An express instance of the proxy server that turns on and off the smart plug HS100 through its ip (192.168.1.201) and it is accessed by get on "http://localhost:3000/onoff"
 Is made to work on Windows. To make it work on pi, the module 'tplink-smarthome-api' is needed to installed explicitelly, but it seems to work with a simple inclusive install.
 Important to run it with sudo:
 1)sudo npm install
+Maybe "sudo npm install tplink-smarthome-api" as well. 
 2)sudo npm start
 
 
