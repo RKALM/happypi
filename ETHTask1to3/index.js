@@ -108,6 +108,7 @@ function onButtonChange(state) {
       hs100OnOff(); //it makes the HS100 to go on and off, through the module that is installed here. check the code here.
       boopTheIFTTT('onoff'); //it makes the Nettio plug 1 to go on and off
       //OR the HS100 through a proxy server. depends on what URL I give on the IFTTT maker.
+      toggleLedColor();
   }
 }
 
@@ -119,10 +120,13 @@ function toggleLedColor(){
         }
 
         var led = {
-            color : led_color,
-            intensity : 20,
-            delay : 1000
-        };
+          r : led_color * 5,
+          g : 10,
+          b : 10,
+          intensity : 20,
+          delay : 1000
+      };
+
 }
 
 //When we receive sensor data about gas from thingy52
