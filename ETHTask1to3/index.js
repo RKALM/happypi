@@ -144,10 +144,9 @@ function onDiscover(thingy) {
     thingy.button_enable(function(error) {
       console.log('Button enabled! ' + error);
     });
-  });
-
-  thingy.on('gasNotif', onGasSensorData);
+    thingy.on('gasNotif', onGasSensorData);
     connectAndEnableGas(thingy);
+  });
 }
 
 
@@ -191,5 +190,25 @@ function boopTheIFTTT(maker_evt)
         console.log('booping the ifttt: ' + err)
     });
 }
+
+console.log('IFTTT Thingy gas sensor!');
+
+process.argv.forEach(function(val, index, array){
+    if (val == '-a') {
+        if (process.argv[index + 1]) {
+            thingy_id = process.argv[index + 1];
+        }
+    }
+    else if (val == '-e') {
+        if (process.argv[index + 1]) {
+            maker_evt = process.argv[index + 1];
+        }
+    }
+    else if (val == '-k') {
+        if (process.argv[index + 1]) {
+            maker_key = process.argv[index + 1];
+        }
+    }
+});
 
 Thingy.discover(onDiscover);
