@@ -7,6 +7,7 @@ var request = require('request');
 var util = require('util');
 const app = express()
 const port = 3000
+var displayGasMsg = "No gas feedback yet!"
 var maker_key = 'j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L';
 var BASE_URL = 'https://maker.ifttt.com/trigger/%s/with/key/%s';
 //HS100
@@ -53,6 +54,7 @@ function pageGenerator(pagename, req, res){
   msg1 = msg1 + '<LINK href="style.css" rel="stylesheet" type="text/css">';
   msg1 = msg1 + "</head><body>";
   msg1 = msg1 + "<h1>Welcome to the " + title + "</h1>";
+  msg1 = msg1 + "<p>Gas: " + displayGasMsg + "</p>";
   text1 = menuGenerator(req, res);
   msg1 = msg1 + text1;
   msg1 = msg1 + '</body></html>';
@@ -65,6 +67,7 @@ function menuGenerator(req, res){
   msg2 = msg2 + 'Status:' + res + '</br>';
   msg2 = msg2 + '<a href="/hs100onoff">1. Turn smart plug on/off</a></br>';
   msg2 = msg2 + '<a href="/toggleledcolor">2. Toggle LED color</a></br>';
+  msg2 = msg2 + '<a href="/">3. Refresh the page</a></br>';
   return msg2;
 }
 
@@ -116,6 +119,17 @@ function toggleLedColor(){
       });
 }
 
+//When we receive sensor data about gas from thingy52
+function onGasSensorData(gas) {
+  console.log('Gas sensor: eCO2 ' + gas.eco2 + ' - TVOC ' + gas.tvoc )
+  displayGas(gas.eco2, gas.tvoc);
+}
+
+function displayGas(eco2, tvoc){
+  displayGasMsg = "Eco2:" + eco2 + " tvoc:" + tvoc;
+  console.log("Eco2:" + eco2 + " tvoc:" + tvoc)
+}
+
 //discovers the thingy
 function onDiscover(thingy) {
   console.log('Discovered: ' + thingy);
@@ -130,6 +144,22 @@ function onDiscover(thingy) {
     thingy.button_enable(function(error) {
       console.log('Button enabled! ' + error);
     });
+  });
+
+  thingy.on('gasNotif', onGasSensorData);
+    connectAndEnableGas(thingy);
+}
+
+
+function connectAndEnableGas(thingy) {
+  thingy.connectAndSetUp(function(error) {
+      console.log('Connected! ' + ((error) ? error : ''));
+      thingy.gas_mode_set(3, function(error) {
+          console.log('Gas sensor configured! ' + ((error) ? error : ''));
+      });
+      thingy.gas_enable(function(error) {
+          console.log('Gas sensor started! ' + ((error) ? error : ''));
+      });
   });
 }
 
