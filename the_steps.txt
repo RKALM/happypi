@@ -113,7 +113,8 @@ http://194.47.34.210:3000/onoff //For HS100. I will have to create for Nettio
 
 ETHTask1to3, (task 3)
 =====================
-Task 3, (ETHTask1to3), is about creating a web server that utilizes both of the technologies, (thingy and hs100), to a web server. Thankfully a bug of instantiating the relevant technologies got sorted out, and now I can complete the task, (which is the most difficult and important one) [Work in progress]
+Task 3, (ETHTask1to3), is about creating a web server that utilizes both of the technologies, (thingy and hs100), to a web server. Thankfully a bug of instantiating the relevant technologies got sorted out, and now I can complete the task, (which is the most difficult and important one)/
+A bug got produced when I tried to add the gas sensor from the thingy. The thingy just got disconnected and I wonder if that has to do with the thingy itself. I will work with it tomorrow. [Work in progress]
 
 
 
