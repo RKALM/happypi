@@ -110,6 +110,10 @@ function toggleLedColor(){
             intensity : 20,
             delay : 1000
         };
+
+        this.led_breathe(led, function(error){
+          console.log('LED color change: ' + error);
+      });
 }
 
 //discovers the thingy
