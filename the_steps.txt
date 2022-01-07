@@ -55,9 +55,11 @@ expressThingy52Nhs100
 =====================
 It serves as an example. it just includes both thingy52 and hs100 in the same express instance.
 By itself it does nothing. but the examples server to understand both technologies.
+For examples/motion.js the console.table module needs to be installed explicitely, and that means "sudo npm install console.table"
 The hs100 ip is configured correctly: 192.168.1.201
 1)sudo npm install
-Maybe "sudo npm install tplink-smarthome-api" as well. 
+Maybe "sudo npm install tplink-smarthome-api" as well. (for the hs100)
+Also maybe "sudo npm install console.table", (for motion.js example)
 2)sudo node examples/name_of_file.js
 
 
@@ -114,10 +116,14 @@ http://194.47.34.210:3000/onoff //For HS100. I will have to create for Nettio
 ETHTask1to3, (task 3)
 =====================
 Task 3, (ETHTask1to3), is about creating a web server that utilizes both of the technologies, (thingy and hs100), to a web server. Thankfully a bug of instantiating the relevant technologies got sorted out, and now I can complete the task, (which is the most difficult and important one).
+For examples/motion.js the console.table module needs to be installed explicitely, and that means "sudo npm install console.table"
+the examples/radio.js is not working and it will not be used.
+the examples/microphone.js is not working and it will not be used.
 Button works
 HS100 on/off works
 Led "works", (it is broken but it is confirmed by using the example as control)
 Gas Sensor works, (I am not sure for the validity of the results).
+I will use the motion feature and I will try to fix the led, (only with a quick fix). before I call it done.
 [Work in progress]
 
 IMPORTANT BUG DETECTED
