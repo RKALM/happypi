@@ -113,10 +113,6 @@ function toggleLedColor(){
             intensity : 20,
             delay : 1000
         };
-
-        this.led_breathe(led, function(error){
-          console.log('LED color change: ' + error);
-      });
 }
 
 //When we receive sensor data about gas from thingy52
