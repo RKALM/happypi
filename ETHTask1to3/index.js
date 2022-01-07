@@ -27,6 +27,15 @@ app.get('/hs100onoff', (req, res) => {
   res.write(msg);
 })
 
+//Turning the Nettio on and off!
+app.get('/nettioonoff', (req, res) => {
+  //hs100OnOff();
+  //res.send('Hello HS100!')
+  boopTheIFTTT('onoff'); //it makes the Nettio plug 1 to go on and off
+  let msg = pageGenerator("index", req, res); //generates a page dynamically.
+  res.write(msg);
+})
+
 //Changing the color of the LED
 app.get('/toggleledcolor', (req, res) => {
   toggleLedColor();
@@ -65,7 +74,8 @@ function pageGenerator(pagename, req, res){
 function menuGenerator(req, res){
   msg2="";
   msg2 = msg2 + 'Status:' + res + '</br>';
-  msg2 = msg2 + '<a href="/hs100onoff">1. Turn smart plug on/off</a></br>';
+  msg2 = msg2 + '<a href="/hs100onoff">1. Turn HS100 on/off</a></br>';
+  msg2 = msg2 + '<a href="/hs100onoff">1. Turn Nettio on/off</a></br>';
   msg2 = msg2 + '<a href="/toggleledcolor">2. Toggle LED color</a></br>';
   msg2 = msg2 + '<a href="/">3. Refresh the page</a></br>';
   return msg2;
