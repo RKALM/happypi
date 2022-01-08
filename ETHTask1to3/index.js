@@ -84,7 +84,7 @@ function pageGenerator(pagename, req, res){
   msg1 = msg1 + "<li>Gas: " + displayGasMsg + "</li>";
   msg1 = msg1 + "<li>Tap: " + msgTap + "</li>";
   msg1 = msg1 + "<li>Orientation: " + msgOrientation + "</li>";
-  msg1 = msg1 + "<li>Quaternion: " + dmsgQuaternion + "</li>";
+  msg1 = msg1 + "<li>Quaternion: " + msgQuaternion + "</li>";
   msg1 = msg1 + "<li>StepCounter: " + msgStepCounter + "</li>";
   msg1 = msg1 + "<li>Euler: " + msgEuler + "</li>";
   msg1 = msg1 + "<li>Heading: " + msgHeading + "</li>";
