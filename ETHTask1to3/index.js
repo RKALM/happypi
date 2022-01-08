@@ -120,6 +120,68 @@ function onButtonChange(state) {
       boopTheIFTTT('onoff'); //it makes the Nettio plug 1 to go on and off
       //OR the HS100 through a proxy server. depends on what URL I give on the IFTTT maker.
       toggleLedColor();
+
+      //activation or deactivation of the motion sensor
+      if (enabled) {
+        enabled = false;
+        this.tap_disable(function(error) {
+            console.log('Tap sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.orientation_disable(function(error) {
+            console.log('Orientation sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.quaternion_disable(function(error) {
+            console.log('Quaternion sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.stepCounter_disable(function(error) {
+            console.log('Step Counter sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.raw_disable(function(error) {
+            console.log('Raw sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.euler_disable(function(error) {
+            console.log('Euler sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.rotation_disable(function(error) {
+            console.log('Rotation sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.heading_disable(function(error) {
+            console.log('Heading sensor stopped! ' + ((error) ? error : ''));
+        });
+        this.gravity_disable(function(error) {
+            console.log('Gravity sensor stopped! ' + ((error) ? error : ''));
+        });
+    }
+    else {
+        enabled = true;
+        this.tap_enable(function(error) {
+            console.log('Tap sensor started! ' + ((error) ? error : ''));
+        });
+        this.orientation_enable(function(error) {
+            console.log('Orientation sensor started! ' + ((error) ? error : ''));
+        });
+        this.quaternion_enable(function(error) {
+            console.log('Quaternion sensor started! ' + ((error) ? error : ''));
+        });
+        this.stepCounter_enable(function(error) {
+            console.log('Step Counter sensor started! ' + ((error) ? error : ''));
+        });
+        this.raw_enable(function(error) {
+            console.log('Raw sensor started! ' + ((error) ? error : ''));
+        });
+        this.euler_enable(function(error) {
+            console.log('Euler sensor started! ' + ((error) ? error : ''));
+        });
+        this.rotation_enable(function(error) {
+            console.log('Rotation sensor started! ' + ((error) ? error : ''));
+        });
+        this.heading_enable(function(error) {
+            console.log('Heading sensor started! ' + ((error) ? error : ''));
+        });
+        this.gravity_enable(function(error) {
+            console.log('Gravity sensor started! ' + ((error) ? error : ''));
+        });
+    }
   }
 }
 
