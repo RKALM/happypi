@@ -97,21 +97,12 @@ Maybe "sudo npm install tplink-smarthome-api" as well.
 
 The ETHTask1n2, (task 2) details for a hadshake
 =================================
-http://194.47.34.210:3000/onoff //For HS100. I will have to create for Nettio
-https://maker.ifttt.com/trigger/onoff/with/key/j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
-the key is j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
-
-for ETHTask1to3, (task 3)
-=========================
-sudo node examples/ifttt_gas.js -e onoff -k LcQX9ZGb 
-//at the moment gives an error noble: unknow peripheral e00f05209a39 handle notify!
-//it seems that error comes from a disconnection.
+HS100 on/off works, (through local connection)
+Nettion on/off for plug 1 works, (through ifttt)
 The link for the ifttt request is
 https://maker.ifttt.com/trigger/onoff/with/key/j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
 the key is j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
-For HS100 remote:
-http://194.47.34.210:3000/onoff //For HS100. I will have to create for Nettio
-
+For the plug 1 of Nettio, (http://194.47.1.210/nettio.cgi?pass=hkr&output1=4)
 
 ETHTask1to3, (task 3)
 =====================
@@ -121,9 +112,14 @@ the examples/radio.js is not working and it will not be used.
 the examples/microphone.js is not working and it will not be used.
 Button works
 HS100 on/off works
+Nettion on/off for plug 1 works
 Led "works", (it is broken but it is confirmed by using the example as control)
 Gas Sensor works, (I am not sure for the validity of the results).
 I will use the motion feature and I will try to fix the led, (only with a quick fix). before I call it done.
+The link for the ifttt request is:
+https://maker.ifttt.com/trigger/onoff/with/key/j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
+the key is j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
+For the plug 1 of Nettio, (http://194.47.1.210/nettio.cgi?pass=hkr&output1=4)
 [Work in progress]
 
 IMPORTANT BUG DETECTED
