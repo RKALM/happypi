@@ -37,6 +37,12 @@ app.get('/hs100onoff', (req, res) => {
   res.write(msg);
 })
 
+//Turning the HS100 on and off from another page. The "s" in the beginning stands for "server"
+app.get('/shs100onoff', (req, res) => {
+    hs100OnOff();
+    res.send('Hello HS100!')
+  })
+
 //Turning the Nettio on and off!
 app.get('/nettioonoff', (req, res) => {
   //hs100OnOff();
@@ -46,6 +52,13 @@ app.get('/nettioonoff', (req, res) => {
   res.write(msg);
 })
 
+//Turning the Nettio on and off from another page. The "s" in the beginning stands for "server
+app.get('/snettioonoff', (req, res) => {
+    //hs100OnOff();
+    boopTheIFTTT('onoff'); //it makes the Nettio plug 1 to go on and off
+    res.send('Hello Nettio!')
+  })
+
 //Changing the color of the LED
 app.get('/toggleledcolor', (req, res) => {
   toggleLedColor();
@@ -53,11 +66,34 @@ app.get('/toggleledcolor', (req, res) => {
   res.write(msg);
 })
 
+//Changing the color of the LED from another page. The "s" in the beginning stands for "server
+app.get('/stoggleledcolor', (req, res) => {
+    toggleLedColor();
+    res.send('Hello LED!')
+  })
+
 //Changing the motion sensor on/off
 app.get('/motionsensor', (req, res) => {
   activateMotion2();
   let msg = pageGenerator("index", req, res); //generates a page dynamically.
   res.write(msg);
+})
+
+//Changing the motion sensor on/off from another page. The "s" in the beginning stands for "server
+app.get('/smotionsensor', (req, res) => {
+    activateMotion2();
+    res.send('Hello Motion sensor!')
+})
+
+
+//delivering the thingy data to another page. The "s" in the beginning stands for "server
+app.get('/sdata', (req, res) => {
+    res.send(thingy)
+})
+
+//delivering the hs100 plug data to another page. The "s" in the beginning stands for "server
+app.get('/sdevice', (req, res) => {
+    res.send(device)
 })
 
 app.listen(port, () => {
