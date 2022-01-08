@@ -16,6 +16,13 @@ const client = new Client();
 //Motion sensor motion.js
 require('console.table');
 var enabled;
+var msgTap = "No Tap data yet";
+var msgOrientation = "No Orientation data yet";
+var msgQuaternion = "No Quaternion data yet";
+var msgStepCounter = "No StepCounter data yet";
+var msgEuler = "No Euler data yet";
+var msgHeading = "No Heading data yet";
+var msgGravity = "No Gravity data yet";
 
 app.get('/', (req, res) => {
   let msg = pageGenerator("index", req, res); //generates a page dynamically.
@@ -73,7 +80,16 @@ function pageGenerator(pagename, req, res){
   msg1 = msg1 + '<LINK href="style.css" rel="stylesheet" type="text/css">';
   msg1 = msg1 + "</head><body>";
   msg1 = msg1 + "<h1>Welcome to the " + title + "</h1>";
-  msg1 = msg1 + "<p>Gas: " + displayGasMsg + "</p>";
+  msg1 = msg1 + "<ul>";
+  msg1 = msg1 + "<li>Gas: " + displayGasMsg + "</li>";
+  msg1 = msg1 + "<li>Tap: " + msgTap + "</li>";
+  msg1 = msg1 + "<li>Orientation: " + msgOrientation + "</li>";
+  msg1 = msg1 + "<li>Quaternion: " + dmsgQuaternion + "</li>";
+  msg1 = msg1 + "<li>StepCounter: " + msgStepCounter + "</li>";
+  msg1 = msg1 + "<li>Euler: " + msgEuler + "</li>";
+  msg1 = msg1 + "<li>Heading: " + msgHeading + "</li>";
+  msg1 = msg1 + "<li>Gravity: " + msgGravity + "</li>";
+  msg1 = msg1 + "</ul>";
   text1 = menuGenerator(req, res);
   msg1 = msg1 + text1;
   msg1 = msg1 + '</body></html>';
@@ -407,20 +423,24 @@ var Orientation = Object.freeze([
 function onTapData(tap) {
     console.log('Tap data: Dir: %s (%d), Count: %d', 
                         Direction[tap.direction], tap.direction, tap.count);
+    msgTap = "Dir:" + Direction[tap.direction] + " (" + tap.direction + "), Count:" + tap.count;
 }
 
 function onOrientationData(orientation) {
     console.log('Orientation data: %s (%d)', Orientation[orientation], orientation);
+    msgOrientation = Orientation[orientation] + " (" + orientation + ")";
 }
 
 function onQuaternionData(quaternion) {
     console.log('Quaternion data: w: %d, x: %d, y: %d, z: %d', 
         quaternion.w, quaternion.x, quaternion.y, quaternion.z);
+    msgQuaternion = "x:" + quaternion.x + ", y:" + quaternion.y + ", z:" + quaternion.z;;
 }
 
 function onStepCounterData(stepCounter) {
     console.log('Step Counter data: Steps: %d, Time[ms]: %d', 
         stepCounter.steps, stepCounter.time);
+    msgStepCounter = "Steps:" + stepCounter.steps + ", Time:" +  stepCounter.time;
 }
 
 function onRawData(raw_data) {
@@ -435,20 +455,22 @@ function onRawData(raw_data) {
 function onEulerData(euler) {
     console.log('Euler angles: roll %d, pitch %d, yaw %d', 
         euler.roll, euler.pitch, euler.yaw);
+    msgEuler = "The angles are roll " + euler.roll +", pitch " + euler.pitch + ", and yaw " + euler.yaw;
 }
 
 function onRotationData(rotation) {
     console.log('Rotation: matrix:');
-
     console.table(rotation);
 }
 
 function onHeadingData(heading) {
     console.log('Heading: %d', heading);
+    msgHeading = heading;
 }
 
 function onGravityData(gravity) {
     console.log('Gravity: x: %d, y %d, z %d', gravity.x, gravity.y, gravity.z);
+    msgGravity = "x:" + gravity.x + ", y:" + gravity.y + ", z:" + gravity.z;
 }
 
 Thingy.discover(onDiscover);
