@@ -143,61 +143,61 @@ function toggleLedColor(){
 function activateMotion(){
   if (enabled) {
     enabled = false;
-    this.tap_disable(function(error) {
+    tap_disable(function(error) {
         console.log('Tap sensor stopped! ' + ((error) ? error : ''));
     });
-    this.orientation_disable(function(error) {
+    orientation_disable(function(error) {
         console.log('Orientation sensor stopped! ' + ((error) ? error : ''));
     });
-    this.quaternion_disable(function(error) {
+    quaternion_disable(function(error) {
         console.log('Quaternion sensor stopped! ' + ((error) ? error : ''));
     });
-    this.stepCounter_disable(function(error) {
+    stepCounter_disable(function(error) {
         console.log('Step Counter sensor stopped! ' + ((error) ? error : ''));
     });
-    this.raw_disable(function(error) {
+    raw_disable(function(error) {
         console.log('Raw sensor stopped! ' + ((error) ? error : ''));
     });
-    this.euler_disable(function(error) {
+    euler_disable(function(error) {
         console.log('Euler sensor stopped! ' + ((error) ? error : ''));
     });
-    this.rotation_disable(function(error) {
+    rotation_disable(function(error) {
         console.log('Rotation sensor stopped! ' + ((error) ? error : ''));
     });
-    this.heading_disable(function(error) {
+    heading_disable(function(error) {
         console.log('Heading sensor stopped! ' + ((error) ? error : ''));
     });
-    this.gravity_disable(function(error) {
+    gravity_disable(function(error) {
         console.log('Gravity sensor stopped! ' + ((error) ? error : ''));
     });
 }
 else {
     enabled = true;
-    this.tap_enable(function(error) {
+    tap_enable(function(error) {
         console.log('Tap sensor started! ' + ((error) ? error : ''));
     });
-    this.orientation_enable(function(error) {
+    orientation_enable(function(error) {
         console.log('Orientation sensor started! ' + ((error) ? error : ''));
     });
-    this.quaternion_enable(function(error) {
+    quaternion_enable(function(error) {
         console.log('Quaternion sensor started! ' + ((error) ? error : ''));
     });
-    this.stepCounter_enable(function(error) {
+    stepCounter_enable(function(error) {
         console.log('Step Counter sensor started! ' + ((error) ? error : ''));
     });
-    this.raw_enable(function(error) {
+    raw_enable(function(error) {
         console.log('Raw sensor started! ' + ((error) ? error : ''));
     });
-    this.euler_enable(function(error) {
+    euler_enable(function(error) {
         console.log('Euler sensor started! ' + ((error) ? error : ''));
     });
-    this.rotation_enable(function(error) {
+    rotation_enable(function(error) {
         console.log('Rotation sensor started! ' + ((error) ? error : ''));
     });
-    this.heading_enable(function(error) {
+    heading_enable(function(error) {
         console.log('Heading sensor started! ' + ((error) ? error : ''));
     });
-    this.gravity_enable(function(error) {
+    gravity_enable(function(error) {
         console.log('Gravity sensor started! ' + ((error) ? error : ''));
     });
 }
