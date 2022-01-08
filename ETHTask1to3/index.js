@@ -87,8 +87,8 @@ function menuGenerator(req, res){
   msg2 = msg2 + '<a href="/hs100onoff">1. Turn HS100 on/off</a></br>';
   msg2 = msg2 + '<a href="/hs100onoff">2. Turn Nettio on/off</a></br>';
   msg2 = msg2 + '<a href="/toggleledcolor">3. Toggle LED color</a></br>';
-  msg2 = msg2 + '<a href="/motionsensor">4. Toggle motion sensor</a></br>';
-  msg2 = msg2 + '<a href="/">5. Refresh the page</a></br>';
+  //msg2 = msg2 + '<a href="/motionsensor">4. Toggle motion sensor</a></br>';
+  msg2 = msg2 + '<a href="/">4. Refresh the page</a></br>';
   return msg2;
 }
 
