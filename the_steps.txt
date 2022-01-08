@@ -115,7 +115,7 @@ HS100 on/off works
 Nettion on/off for plug 1 works
 Led "works", (it is broken but it is confirmed by using the example as control)
 Gas Sensor works, (I am not sure for the validity of the results).
-I will use the motion feature and I will try to fix the led, (only with a quick fix). before I call it done.
+motion sensor works and generates data. Tried implement toggle on/off to the sensor but I was not able to do so. I added this functionality finally to the button. It works but it doesn't stop the sensor, (it is not a problem so we can ignore that).
 The link for the ifttt request is:
 https://maker.ifttt.com/trigger/onoff/with/key/j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
 the key is j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
