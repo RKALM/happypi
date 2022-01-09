@@ -161,5 +161,11 @@ Important to run it with sudo:
 3)sudo npm install console.table
 4)sudo npm start
 
-
+IMPORTANT INFORMATION ABOUT TASK 4
+==================================
+ETHTask1to4pi does not use firebase so it is important to utilize ip. To take the private ip, (inside the private network), you can type "ifconfig" on the pi and you will get the ip of the interface that you are using wlan or et0, (usally wlan on the lab).
+You also can find the actual ip but we have that. for information there is that link here that can help a lot:
+https://opensource.com/article/18/5/how-find-ip-address-linux
+Have in mind that you will probably have to shut down you firewall for your domain, (sometimes private as well), network for the windows defender.
+Also sometimes you need to make the device visilbe to other device in your local network.
 
