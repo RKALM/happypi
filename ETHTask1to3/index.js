@@ -16,7 +16,7 @@ const { Client } = require('tplink-smarthome-api');
 const client = new Client();
 //Motion sensor motion.js
 require('console.table');
-var enabled;
+var enabled = false;
 var msgTap = "No Tap data yet";
 var msgOrientation = "No Orientation data yet";
 var msgQuaternion = "No Quaternion data yet";
@@ -330,8 +330,10 @@ else {
 //When we receive sensor data about gas from thingy52
 function onGasSensorData(gas) {
   console.log('Gas sensor: eCO2 ' + gas.eco2 + ' - TVOC ' + gas.tvoc )
-  sdata.eco2 = gas.eco2;
-  sdata.tvoc = gas.tvoc;
+  if(gas != null){
+    sdata.eco2 = gas.eco2;
+    sdata.tvoc = gas.tvoc;
+  }
   displayGas(gas.eco2, gas.tvoc);
 }
 
@@ -472,26 +474,35 @@ function onTapData(tap) {
 
 function onOrientationData(orientation) {
     console.log('Orientation data: %s (%d)', Orientation[orientation], orientation);
-    sdata.Orientation = Orientation;
-    sdata.orientation = orientation;
+    if(Orientation != null){
+        sdata.Orientation = Orientation;
+    }
+    if(orientation != null){
+        sdata.Orientation = orientation;
+    }
     msgOrientation = Orientation[orientation] + " (" + orientation + ")";
 }
 
 function onQuaternionData(quaternion) {
     console.log('Quaternion data: w: %d, x: %d, y: %d, z: %d', 
         quaternion.w, quaternion.x, quaternion.y, quaternion.z);
-    sdata.quaternion.w = quaternion.w;
-    sdata.quaternion.x = quaternion.x;
-    sdata.quaternion.y = quaternion.y;
-    sdata.quaternion.z = quaternion.z;
+    
+    if(quaternion != null){
+        sdata.quaternion.w = quaternion.w;
+        sdata.quaternion.x = quaternion.x;
+        sdata.quaternion.y = quaternion.y;
+        sdata.quaternion.z = quaternion.z;
+    }
     msgQuaternion = "x:" + quaternion.x + ", y:" + quaternion.y + ", z:" + quaternion.z;;
 }
 
 function onStepCounterData(stepCounter) {
     console.log('Step Counter data: Steps: %d, Time[ms]: %d', 
         stepCounter.steps, stepCounter.time);
-        sdata.stepCounter.steps = stepCounter.steps;
-        sdata.stepCounter.time = stepCounter.time;
+        if(stepCounter != null){
+            sdata.stepCounter.steps = stepCounter.steps;
+            sdata.stepCounter.time = stepCounter.time;
+        }
 
     msgStepCounter = "Steps:" + stepCounter.steps + ", Time:" +  stepCounter.time;
 }
@@ -508,9 +519,12 @@ function onRawData(raw_data) {
 function onEulerData(euler) {
     console.log('Euler angles: roll %d, pitch %d, yaw %d', 
         euler.roll, euler.pitch, euler.yaw);
-        sdata.euler.roll = euler.roll;
-        sdata.euler.pitch = euler.pitch;
-        sdata.euler.yaw = euler.yaw;
+
+        if(euler != null){
+            sdata.euler.roll = euler.roll;
+            sdata.euler.pitch = euler.pitch;
+            sdata.euler.yaw = euler.yaw;
+        }
     msgEuler = "The angles are roll " + euler.roll +", pitch " + euler.pitch + ", and yaw " + euler.yaw;
 }
 
@@ -522,15 +536,20 @@ function onRotationData(rotation) {
 function onHeadingData(heading) {
     console.log('Heading: %d', heading);
     msgHeading = heading;
-    sdata.heading = heading;
+    if(heading != null){
+        sdata.heading = heading;
+    }
 }
 
 function onGravityData(gravity) {
     console.log('Gravity: x: %d, y %d, z %d', gravity.x, gravity.y, gravity.z);
     msgGravity = "x:" + gravity.x + ", y:" + gravity.y + ", z:" + gravity.z;
-    sdata.gravity.x = gravity.x;
-    sdata.gravity.y = gravity.y;
-    sdata.gravity.z = gravity.z;
+    
+    if(gravity != null){
+        sdata.gravity.x = gravity.x;
+        sdata.gravity.y = gravity.y;
+        sdata.gravity.z = gravity.z;
+    }
 }
 
 Thingy.discover(onDiscover);
