@@ -136,5 +136,30 @@ IMPORTANT BUG DETECTED
 ======================
 Node.js on Pi does not kill the server when you kill the terminal and it produces an error when you try to rerun the server. The solution for now is to reboot the pi, every time you wish to kill and rerun the server.
 
+ETHTask1to4pi, (task 4 the side of pi)
+=====================
+[exactly the same this as ETHTask1to3. ETHTask1to5pi for task 5 will be with firebase]
+Task 4, (ETHTask1to4pi), is about creating a web server that utilizes both of the technologies, (thingy and hs100), to a web server. Thankfully a bug of instantiating the relevant technologies got sorted out, and now I can complete the task, (which is the most difficult and important one).
+For examples/motion.js the console.table module needs to be installed explicitely, and that means "sudo npm install console.table"
+the examples/radio.js is not working and it will not be used.
+the examples/microphone.js is not working and it will not be used.
+Button works
+HS100 on/off works
+Nettion on/off for plug 1 works
+Led "works", (it is broken but it is confirmed by using the example as control)
+Gas Sensor works, (I am not sure for the validity of the results).
+The server delivers the data as json through get to /sdata
+motion sensor works and generates data. Tried implement toggle on/off to the sensor but I was not able to do so. I added this functionality finally to the button. It works but it doesn't stop the sensor, (it is not a problem so we can ignore that).
+A strange bug is that the sensor delivers the first motion data to the homepage after the button is pressed.
+The link for the ifttt request is:
+https://maker.ifttt.com/trigger/onoff/with/key/j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
+the key is j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L
+For the plug 1 of Nettio, (http://194.47.1.210/nettio.cgi?pass=hkr&output1=4)
+Important to run it with sudo:
+1)sudo npm install
+2)Probably needs "sudo npm install tplink-smarthome-api" as well.
+3)sudo npm install console.table
+4)sudo npm start
+
 
 
