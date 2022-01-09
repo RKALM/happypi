@@ -16,7 +16,7 @@ const { Client } = require('tplink-smarthome-api');
 const client = new Client();
 //Motion sensor motion.js
 require('console.table');
-var enabled = false;
+var enabled;
 var msgTap = "No Tap data yet";
 var msgOrientation = "No Orientation data yet";
 var msgQuaternion = "No Quaternion data yet";
@@ -465,9 +465,15 @@ function onTapData(tap) {
     console.log('Tap data: Dir: %s (%d), Count: %d', 
                         Direction[tap.direction], tap.direction, tap.count);
 
-    sdata.Direction = Direction;
-    sdata.tap.direction = tap.direction;
-    sdata.tap.count = tap.count;
+    if(Direction != null){
+        sdata.Direction = Direction;
+    }
+    if(tap.direction != null){
+        sdata.tapdirection = tap.direction;
+    }
+    if(tap.count != null){
+        sdata.tapcount = tap.count;
+    }
 
     msgTap = "Dir:" + Direction[tap.direction] + " (" + tap.direction + "), Count:" + tap.count;
 }
@@ -488,10 +494,10 @@ function onQuaternionData(quaternion) {
         quaternion.w, quaternion.x, quaternion.y, quaternion.z);
     
     if(quaternion != null){
-        sdata.quaternion.w = quaternion.w;
-        sdata.quaternion.x = quaternion.x;
-        sdata.quaternion.y = quaternion.y;
-        sdata.quaternion.z = quaternion.z;
+        sdata.quaternionw = quaternion.w;
+        sdata.quaternionx = quaternion.x;
+        sdata.quaterniony = quaternion.y;
+        sdata.quaternionz = quaternion.z;
     }
     msgQuaternion = "x:" + quaternion.x + ", y:" + quaternion.y + ", z:" + quaternion.z;;
 }
@@ -521,9 +527,9 @@ function onEulerData(euler) {
         euler.roll, euler.pitch, euler.yaw);
 
         if(euler != null){
-            sdata.euler.roll = euler.roll;
-            sdata.euler.pitch = euler.pitch;
-            sdata.euler.yaw = euler.yaw;
+            sdata.eulerroll = euler.roll;
+            sdata.eulerpitch = euler.pitch;
+            sdata.euleryaw = euler.yaw;
         }
     msgEuler = "The angles are roll " + euler.roll +", pitch " + euler.pitch + ", and yaw " + euler.yaw;
 }
@@ -546,9 +552,9 @@ function onGravityData(gravity) {
     msgGravity = "x:" + gravity.x + ", y:" + gravity.y + ", z:" + gravity.z;
     
     if(gravity != null){
-        sdata.gravity.x = gravity.x;
-        sdata.gravity.y = gravity.y;
-        sdata.gravity.z = gravity.z;
+        sdata.gravityx = gravity.x;
+        sdata.gravityy = gravity.y;
+        sdata.gravityz = gravity.z;
     }
 }
 
