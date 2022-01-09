@@ -92,11 +92,6 @@ app.get('/sdata', (req, res) => {
     res.send(JSON.stringify(sdata));
 })
 
-//delivering the hs100 plug data to another page. The "s" in the beginning stands for "server
-app.get('/sdevice', (req, res) => {
-    res.send(JSON.stringify(device));
-})
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

@@ -119,6 +119,7 @@ HS100 on/off works
 Nettion on/off for plug 1 works
 Led "works", (it is broken but it is confirmed by using the example as control)
 Gas Sensor works, (I am not sure for the validity of the results).
+The server delivers the data as json through get to /sdata
 motion sensor works and generates data. Tried implement toggle on/off to the sensor but I was not able to do so. I added this functionality finally to the button. It works but it doesn't stop the sensor, (it is not a problem so we can ignore that).
 A strange bug is that the sensor delivers the first motion data to the homepage after the button is pressed.
 The link for the ifttt request is:
@@ -130,7 +131,6 @@ Important to run it with sudo:
 2)Probably needs "sudo npm install tplink-smarthome-api" as well.
 3)sudo npm install console.table
 4)sudo npm start
-[Work in progress]
 
 IMPORTANT BUG DETECTED
 ======================
