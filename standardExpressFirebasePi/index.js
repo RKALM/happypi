@@ -3,7 +3,7 @@ const admin=require('firebase-admin');
 const app = express()
 const port = 3000
 
-var serviceAccount = require('./admin.json');
+var serviceAccount = require('/home/pi/admin/json');
 admin.initializeApp({
 credential: admin.credential.cert(serviceAccount),
 databaseURL: "https://fir-37e91-default-rtdb.europe-west1.firebasedatabase.app",
