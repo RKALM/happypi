@@ -582,8 +582,13 @@ function onGravityData(gravity) {
 
 //interval that calls the addData function. needs to be set up
 function intervalFunc() {
-    addData(sdata); //sending the data
-    console.log('sent data to firebase!');
+    if(sdata != null){
+        addData(sdata); //sending the data
+        console.log('sent data to firebase!');
+    } else {
+        console.log("sdata is empty");
+    }
+    
   }
   
 
