@@ -20,8 +20,9 @@ authDomain: "fir-37e91.firebaseapp.com",
 });
 
 var db=admin.database();
-var userRef=db.ref("sdata");
+var dataRef=db.ref("sdata");
 var sdata = new Object(); //here is the data to be sent is collected
+sdata.roll = 123; //a quick fix. better that than messing with the structure.
 //HS100
 const { Client } = require('tplink-smarthome-api');
 const client = new Client();
@@ -155,8 +156,8 @@ function menuGenerator(req, res){
 
 //Sending data! Adding a json object to the database
 function addData(obj){
-    var oneUser=userRef.child(obj.roll);
-    oneUser.update(obj,(err)=>{
+    var oneData=dataRef.child(obj.roll);
+    oneData.update(obj,(err)=>{
     if(err){
       console.log("Something went wrong" + err)
     //res2.status(300).json({"msg":"Something went wrong","error":err});
