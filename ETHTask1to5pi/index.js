@@ -22,7 +22,7 @@ authDomain: "fir-37e91.firebaseapp.com",
 var db=admin.database();
 var dataRef=db.ref("sdata");
 var sdata = new Object(); //here is the data to be sent is collected
-sdata.roll = 123; //a quick fix. better that than messing with the structure.
+sdata.roll = "data"; //a quick fix. better that than messing with the structure.
 //HS100
 const { Client } = require('tplink-smarthome-api');
 const client = new Client();
