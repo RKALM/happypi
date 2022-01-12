@@ -10,7 +10,18 @@ const port = 3000
 var displayGasMsg = "No gas feedback yet!"
 var maker_key = 'j2eqWrlFER7ngphU4IUTDmYD7QNigvN_mqXCg36Kd0L';
 var BASE_URL = 'https://maker.ifttt.com/trigger/%s/with/key/%s';
-var sdata = new Object(); //for sending the data somewhere as a json
+//Firebase / Data management
+const admin=require('firebase-admin');
+var serviceAccount = require('/home/pi/admin.json');
+admin.initializeApp({
+credential: admin.credential.cert(serviceAccount),
+databaseURL: "https://fir-37e91-default-rtdb.europe-west1.firebasedatabase.app",
+authDomain: "fir-37e91.firebaseapp.com",
+});
+
+var db=admin.database();
+var userRef=db.ref("sdata");
+var sdata = new Object(); //here is the data to be sent is collected
 //HS100
 const { Client } = require('tplink-smarthome-api');
 const client = new Client();
@@ -139,6 +150,22 @@ function menuGenerator(req, res){
   msg2 = msg2 + '<a href="/">4. Refresh the page</a></br>';
   return msg2;
 }
+
+//============= Functions ============================================
+
+//Sending data! Adding a json object to the database
+function addData(obj){
+    var oneUser=userRef.child(obj.roll);
+    oneUser.update(obj,(err)=>{
+    if(err){
+      console.log("Something went wrong" + err)
+    //res2.status(300).json({"msg":"Something went wrong","error":err});
+    }
+    else{
+    //res2.status(200).json({"msg":"user created sucessfully"});
+    console.log("Data was sucessfully sent")
+    }
+    }) }
 
 //Turning the HS100 on and off!
 function hs100OnOff(){
@@ -553,4 +580,12 @@ function onGravityData(gravity) {
     }
 }
 
+//interval that calls the addData function. needs to be set up
+function intervalFunc() {
+    addData(sdata); //sending the data
+    console.log('sent data to firebase!');
+  }
+  
+
 Thingy.discover(onDiscover);
+setInterval(intervalFunc, 1500);
