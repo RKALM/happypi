@@ -1,3 +1,12 @@
+BEFORE ANYTHING ELSE
+====================
+To install or update anything related with happy pi simply run the following commands 
+1)sudo rm -r /home/pi/happypi //removing the old happypi
+2)sudo git clone https://github.com/exarchias/happypi.git
+The firbase key, (admin.json) needs to be pasted on the pi folder, (/home/pi/admin.json), manually, but it doesn't have to be deleted in case of update or change. You can do that by email or usb.
+DO NOT PUBLISH THE KEY ANYWHERE.
+
+
 sudo apt-get update
 sudo apt-get upgrade
 https://www.makersupplies.sg/blogs/tutorials/how-to-install-node-js-and-npm-on-the-raspberry-pi
@@ -178,4 +187,27 @@ You also can find the actual ip but we have that. for information there is that 
 https://opensource.com/article/18/5/how-find-ip-address-linux
 Have in mind that you will probably have to shut down you firewall for your domain, (sometimes private as well), network for the windows defender.
 Also sometimes you need to make the device visilbe to other device in your local network.
+
+standardExpressFirebasePi
+=========================
+It is the instance that we used for testing firebase for first time and we had succesful CRUD and handshake.
+It is based on this article:
+https://medium.com/@therishugupta/store-and-retrieve-data-from-the-firebase-database-in-the-nodejs-app-ee2030b6ef4
+The code though had to be modified, because it was buggy, (because of incompatibility)
+Important to run it with sudo:
+1)sudo npm install
+2)sudo npm install firebase-admin
+3)sudo npm start
+
+IPORTANT INFORMATION ABOUT FIREBASE KEY. The firebase key, (which is the file admin.json).
+Should always located on the pi folder, (/home/pi/admin.json) on the pi, and it should never be published for any reason. the key does not distributed by the repository and it doesn't need to be deleted.
+
+ETHTask1to5pi, (the task 5 on the side of pi)
+=============================================
+ETHTask1to5pi works and it will probably be the last bit of software added to the pi as the tasks 6 and 7 can be solved on their windows or heroku instances.
+Important to run it with sudo:
+1)sudo npm install
+2)sudo npm install console.table
+3)sudo npm install firebase-admin
+4)sudo npm start
 
